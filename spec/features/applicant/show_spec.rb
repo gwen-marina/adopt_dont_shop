@@ -108,7 +108,7 @@ RSpec.describe 'the applicant show page', type: :feature do
                                   city: 'Tucson', 
                                   state: 'Arizona', 
                                   zip_code: '12345',
-                                  description: 'I have a big yard and work from home.',
+                                  description: '',
                                   application_status: 'In Progress'
                                   )
     shelter = Shelter.create!(name: 'Fancy pets of Colorado', city: 'Denver, CO', foster_program: true, rank: 10)
@@ -128,7 +128,7 @@ RSpec.describe 'the applicant show page', type: :feature do
    
     expect(page).to have_content('Submit my application')
 
-    fill_in 'description', with: applicant.description
+    fill_in 'description', with: 'I have a big yard and work from home.'
     expect(page).to have_button('Submit my application')
     click_button('Submit my application')  
 

@@ -1,16 +1,11 @@
 class ApplicantsController < ApplicationController
 
   def show
-     @applicant = Applicant.find(params[:id])
-      if params[:pet_name]
-        @pets = Pet.search(params[:pet_name])
-      elsif params[:pet_id]
-        pet = Pet.where(id: params[:pet_id])
-        @applicant.pets << pet
-        @pets = []
-        redirect_to applicant_show_url
-      else
-        @pets =[]
+    @applicant = Applicant.find(params[:id])
+    if params[:pet_name]
+      @pets = Pet.search(params[:pet_name])
+    else
+      @pets =[]
     end
   end
   
